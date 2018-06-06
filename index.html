@@ -62,8 +62,8 @@
             <form action="https://">
               <h5>title</h5>
               <select id="field1" multiple>
-                <option value="male">M</option>
-                <option value="female">F</option>
+                <option value="1">M</option>
+                <option value="2">F</option>
               </select>
               <h5>title</h5>
               <select id="field2">
@@ -211,7 +211,7 @@
     $.ajax({
          type: "get",
          async: true,
-         data: {Fprint: time + kk},
+         data: {conditions: tags, storename: "KH02"},
          url: "https://script.google.com/macros/s/AKfycbxQEHHUmM4sAigFbK-GRSQMaS0KCGqPsN3hRSlne9kr2LZpQyw/exec",
          dataType: "jsonp",
          success: function(res){
