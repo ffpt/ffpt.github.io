@@ -253,7 +253,7 @@
   // }
   function submitForm() {
     requestCount += 1;
-    $('#searchResult').find('.content').html(innerHTML);
+    $('#searchResult').find('.content').html(loadingHTML);
     //alert(kk);
     var dt = new Date();
     var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
