@@ -13,6 +13,7 @@
 </head>
 
 <body>
+
   <nav class="light-blue lighten-1" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Logo</a>
       <ul class="right hide-on-med-and-down">
@@ -35,7 +36,7 @@
       <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     </div>
   </nav>
-  <div class="section no-pad-bot" id="index-banner">
+  <!-- <div class="section no-pad-bot" id="index-banner">
     <div class="container">
       <br><br>
       <h1 class="header center orange-text">Starter Template</h1>
@@ -48,7 +49,7 @@
       <br><br>
 
     </div>
-  </div>
+  </div> -->
 
 
   <div class="container">
@@ -75,22 +76,13 @@
               </select>
             </form>
           </div>
-          
-          <div class="row center">
-            <a href="" id="download-button" class="waves-effect waves-light btn">Get Started</a>
-            <a href="" id="download-button" class="waves-effect waves-light btn">Get Started</a>
-            <a href="" id="download-button" class="waves-effect waves-light btn">Get Started</a>
-            <a href="" id="download-button" class="waves-effect waves-light btn">Get Started</a>
-          </div>
-          <div class="icon-block">
-            <h2 class="center light-blue-text"><i class="material-icons">flash_on</i></h2>
-            <h5 class="center">Speeds up development</h5>
-
-            <p class="light">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
-          </div>
         </div>
 
-        <div class="col s12 m4">
+        <div class="col s12 m8">
+        <div class="icon-block" id="searchResult">
+            <div class="content" id="searchResult1">
+                content
+              </div>
           <div class="icon-block">
             <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
             <h5 class="center">User Experience Focused</h5>
@@ -98,14 +90,6 @@
             <p class="light">By utilizing elements and principles of Material Design, we were able to create a framework that incorporates components and animations that provide more feedback to users. Additionally, a single underlying responsive system across all platforms allow for a more unified user experience.</p>
           </div>
         </div>
-
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center light-blue-text"><i class="material-icons">settings</i></h2>
-            <h5 class="center">Easy to work with</h5>
-
-            <p class="light">We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.</p>
-          </div>
         </div>
       </div>
 
@@ -123,6 +107,7 @@
 
         </div>
         <div class="col l3 s12">
+            
           <h5 class="white-text">Settings</h5>
           <ul>
             <li><a class="white-text" href="#!">Link 1</a></li>
@@ -160,9 +145,8 @@
     var config1 = {
       onSelect: function(value, text) {        
         tags.push(value);
-        alert(`tags: ${tags.join()}`);
-        // post("https://google.com/",tags);
-        submitFormTo("index.html");
+        // alert(`tags: ${tags.join()}`);
+        submitForm();
       },
       onDeselect: function(value, text) {
         
@@ -198,7 +182,6 @@
             hiddenField.setAttribute("type", "hidden");
             hiddenField.setAttribute("name", key);
             hiddenField.setAttribute("value", params[key]);
-
             form.appendChild(hiddenField);
         }
     }
@@ -206,17 +189,27 @@
     document.body.appendChild(form);
     form.submit();
   }
-
-  function submitFormTo(aUrl) {
-    $('#addressForm').value
-    alert($('#addressForm'));
-    $.ajax({type:'POST', url: aUrl, data:$('#addressForm').serialize(), success: function(response) {
-      alert("AJAX response")
-        $('#addressResult').find('.form_result').html("response");
-    }});
-
-    return false;
-}
+ 
+  function callback(e) {
+    alert(e)
+    var json = JSON.stringify(e)
+    alert(json)
+    var obj = JSON.parse(json)
+    alert(obj)
+  }
+  function submitForm() {
+      alert(document.location.hostname);
+    $.ajax({
+         type: "get",
+         async: true,
+         url: "https://script.googleusercontent.com/macros/echo?user_content_key=SlnNbFTFZFkdnydqzr71OmVCmyBT1k0ZdvdfnRGE-st9Q5X-m1d0Y79mPf6MetYDdeISDwlxj3Er8EfkOjXdK3yhoWuoZn3Sm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnKgDcE4ST151m2Tlj3tGTpx_TfSHvmxJeSdpv4JJ5ZTZ0dMTq-I5aIpF-qgrKAT0oaV-rV9yhQ38&lib=MtP5E-JauFjxybof4-tzQWDvSXAXKOPem",
+         dataType: "jsonp",
+         success: function(res){
+         },
+         error: function(){
+         }
+     });
+  }
   
   
   </script>
