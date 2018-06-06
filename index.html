@@ -208,10 +208,16 @@
       alert(kk);
       var dt = new Date();
       var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
+
+  var paraCondition = "0"
+  if (tags.length == 1) {
+    paraCondition = tags[0]
+  }
+  alert(paraCondition);
     $.ajax({
          type: "get",
          async: true,
-         data: {conditions: tags, storename: "KH02"},
+         data: {condition: paraCondition, storename: "KH02"},
          url: "https://script.google.com/macros/s/AKfycbxQEHHUmM4sAigFbK-GRSQMaS0KCGqPsN3hRSlne9kr2LZpQyw/exec",
          dataType: "jsonp",
          success: function(res){
