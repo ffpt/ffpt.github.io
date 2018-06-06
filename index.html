@@ -81,6 +81,51 @@
         <div class="col s12 m8">
           <div class="icon-block" id="searchResult">            
             <div class="content" id="searchResult1">
+              <div class="row center" style="height: 300px; width: 100%;" id="loading">
+                  <div class="row center" style="height: 40%; width: 100%;">                    
+                  </div>
+                  <div class="preloader-wrapper active">
+                      <div class="spinner-layer spinner-blue">
+                          <div class="circle-clipper left">
+                            <div class="circle"></div>
+                          </div><div class="gap-patch">
+                            <div class="circle"></div>
+                          </div><div class="circle-clipper right">
+                            <div class="circle"></div>
+                          </div>
+                        </div>
+                  
+                        <div class="spinner-layer spinner-red">
+                          <div class="circle-clipper left">
+                            <div class="circle"></div>
+                          </div><div class="gap-patch">
+                            <div class="circle"></div>
+                          </div><div class="circle-clipper right">
+                            <div class="circle"></div>
+                          </div>
+                        </div>
+                  
+                        <div class="spinner-layer spinner-yellow">
+                          <div class="circle-clipper left">
+                            <div class="circle"></div>
+                          </div><div class="gap-patch">
+                            <div class="circle"></div>
+                          </div><div class="circle-clipper right">
+                            <div class="circle"></div>
+                          </div>
+                        </div>
+                  
+                        <div class="spinner-layer spinner-green">
+                          <div class="circle-clipper left">
+                            <div class="circle"></div>
+                          </div><div class="gap-patch">
+                            <div class="circle"></div>
+                          </div><div class="circle-clipper right">
+                            <div class="circle"></div>
+                          </div>
+                        </div>
+                  </div>                
+              </div>
               <div class="row center">
                 <div class="col s12 m6">
                   content
@@ -171,6 +216,8 @@
 <script src="https://script.google.com/macros/s/AKfycbxrcTwFyt6WoeOfzI3Kfj8ywA7azE8lFWuKdbOh4Ysal9NiEOHk/exec"></script>
 
   <script>
+    var requestCount = 0;
+    var loadingHTML = document.getElementById('loading').innerHTML;
 
     var tags = [];
 
@@ -205,6 +252,8 @@
   //   alert(obj)
   // }
   function submitForm() {
+    requestCount += 1;
+    $('#searchResult').find('.content').html(innerHTML);
     //alert(kk);
     var dt = new Date();
     var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
