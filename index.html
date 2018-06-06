@@ -126,14 +126,6 @@
                         </div>
                   </div>                
               </div>
-              <div class="row center">
-                <div class="col s12 m6">
-                  content
-                </div>
-                <div class="col s12 m6">
-                  ccontent
-                </div>
-              </div>
             </div>            
           </div>
         </div>
@@ -217,7 +209,7 @@
 
   <script>
     var requestCount = 0;
-    var loadingHTML = document.getElementById('loading').innerHTML;
+    var loadingHTML = document.getElementById('searchResult1').innerHTML;
 
     var tags = [];
 
@@ -254,7 +246,7 @@
   function submitForm() {
     requestCount += 1;
     $('#searchResult').find('.content').html(loadingHTML);
-    //alert(kk);
+    alert(loadingHTML);
     var dt = new Date();
     var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
 
