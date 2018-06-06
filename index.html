@@ -205,15 +205,15 @@
   //   alert(obj)
   // }
   function submitForm() {
-      alert(kk);
-      var dt = new Date();
-      var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
+    //alert(kk);
+    var dt = new Date();
+    var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
 
-  var paraCondition = "0"
-  if (tags.length == 1) {
-    paraCondition = tags[0]
-  }
-  alert(paraCondition);
+    var paraCondition = "0"
+    if (tags.length == 1) {
+      paraCondition = tags[0]
+    }
+    //alert(paraCondition);
     $.ajax({
          type: "get",
          async: true,
@@ -223,7 +223,7 @@
          success: function(res){
          },
          error: function(error){
-           alert(error)
+          //  alert(error)
          }
      });
   }
