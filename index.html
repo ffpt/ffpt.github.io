@@ -66,7 +66,7 @@
                 <option value="female">F</option>
               </select>
               <h5>title</h5>
-              <select id="field2" multiple>
+              <select id="field2">
                 <option value="A">A</option>
                 <option value="B">B</option>  
                 <option value="C">C</option>
@@ -79,17 +79,18 @@
         </div>
 
         <div class="col s12 m8">
-        <div class="icon-block" id="searchResult">
+          <div class="icon-block" id="searchResult">            
             <div class="content" id="searchResult1">
-                content
+              <div class="row center">
+                <div class="col s12 m6">
+                  content
+                </div>
+                <div class="col s12 m6">
+                  ccontent
+                </div>
               </div>
-          <div class="icon-block">
-            <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
-            <h5 class="center">User Experience Focused</h5>
-
-            <p class="light">By utilizing elements and principles of Material Design, we were able to create a framework that incorporates components and animations that provide more feedback to users. Additionally, a single underlying responsive system across all platforms allow for a more unified user experience.</p>
+            </div>            
           </div>
-        </div>
         </div>
       </div>
 
@@ -142,16 +143,6 @@
   <script src="tag/tagselector.js"></script>
   
   <script>
-    var kk = "SlnNbFTFZFkdnydqzr71OmVCmyBT1k0ZdvdfnRGE";
-    function aa(t) {
-      return document.location.hostname;
-    }
-  </script>
-
-  <script src="https://script.google.com/macros/s/AKfycbyefiar6wmZnHAimBaBF4VaLn54r1aIiku2BkEcw9uVo4OD5Kw/exec"></script>
-
-  
-  <script>
     var config1 = {
       onSelect: function(value, text) {        
         tags.push(value);
@@ -165,13 +156,19 @@
           tags.splice(idx,1);
         }
         alert(`tags: ${tags.join()}`);
-        post("https://google.com/",tags);
       }
     };
     var field1 = new TagSelector(document.getElementById('field1'), config1);
     var field2 = new TagSelector(document.getElementById('field2'));
+
+    var kk = "SlnNbFTFZFkdnydqzr71OmVCmyBT1k0ZdvdfnRGE";
+    function aa(t) {
+      return kk;
+    }
     
   </script>
+
+<script src="https://script.google.com/macros/s/AKfycbxrcTwFyt6WoeOfzI3Kfj8ywA7azE8lFWuKdbOh4Ysal9NiEOHk/exec"></script>
 
   <script>
 
@@ -200,23 +197,27 @@
     form.submit();
   }
  
-  function callback(e) {
-    alert(e)
-    var json = JSON.stringify(e)
-    alert(json)
-    var obj = JSON.parse(json)
-    alert(obj)
-  }
+  // function callback(e) {
+  //   alert(e)
+  //   var json = JSON.stringify(e)
+  //   alert(json)
+  //   var obj = JSON.parse(json)
+  //   alert(obj)
+  // }
   function submitForm() {
       alert(kk);
+      var dt = new Date();
+      var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
     $.ajax({
          type: "get",
          async: true,
-         url: "https://script.googleusercontent.com/macros/echo?user_content_key=SlnNbFTFZFkdnydqzr71OmVCmyBT1k0ZdvdfnRGE-st9Q5X-m1d0Y79mPf6MetYDdeISDwlxj3Er8EfkOjXdK3yhoWuoZn3Sm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnKgDcE4ST151m2Tlj3tGTpx_TfSHvmxJeSdpv4JJ5ZTZ0dMTq-I5aIpF-qgrKAT0oaV-rV9yhQ38&lib=MtP5E-JauFjxybof4-tzQWDvSXAXKOPem",
+         data: {Fprint: time + kk},
+         url: "https://script.google.com/macros/s/AKfycbxQEHHUmM4sAigFbK-GRSQMaS0KCGqPsN3hRSlne9kr2LZpQyw/exec",
          dataType: "jsonp",
          success: function(res){
          },
-         error: function(){
+         error: function(error){
+           alert(error)
          }
      });
   }
