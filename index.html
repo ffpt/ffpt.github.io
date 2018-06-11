@@ -66,14 +66,27 @@
                 <option value="2">F</option>
               </select>
               <h5>title</h5>
-              <select id="field2">
+              <select id="field2" multiple>                
                 <option value="A">A</option>
                 <option value="B">B</option>  
                 <option value="C">C</option>
-                <option value="D">D</option>
+                <option value="D">D</option>                
                 <option value="E">E</option>
-                <option value="F">F</option>            
+                <option value="F">F</option>  
+                <option value="G">G</option>                
+                <option value="H">H</option>                
               </select>
+              <h5>title</h5>
+              <select id="field3" multiple>                
+                  <option value="A">A</option>
+                  <option value="B">B</option>  
+                  <option value="C">C</option>
+                  <option value="D">D</option>                
+                  <option value="E">E</option>
+                  <option value="F">F</option>  
+                  <option value="G">G</option>                
+                  <option value="H">H</option>                
+                </select>
             </form>
           </div>
         </div>
@@ -181,7 +194,8 @@
   
   <script>
     var config1 = {
-      onSelect: function(value, text) {        
+      onSelect: function(value, text) {  
+        field2.reload();     
         tags.push(value);
         // alert(`tags: ${tags.join()}`);
         submitForm();
@@ -196,7 +210,18 @@
       }
     };
     var field1 = new TagSelector(document.getElementById('field1'), config1);
-    var field2 = new TagSelector(document.getElementById('field2'));
+
+    var config2 = {
+      max: 1,
+      onSelect: function(value, text) {  
+        
+      },
+      onDeselect: function(value, text) {
+        
+      }
+    };
+    var field2 = new TagSelector(document.getElementById('field2'), config2);
+    new TagSelector(document.getElementById('field3'));
 
     var kk = "SlnNbFTFZFkdnydqzr71OmVCmyBT1k0ZdvdfnRGE";
     function aa(t) {
@@ -205,7 +230,7 @@
     
   </script>
 
-<script src="https://script.google.com/macros/s/AKfycbxrcTwFyt6WoeOfzI3Kfj8ywA7azE8lFWuKdbOh4Ysal9NiEOHk/exec"></script>
+  <script src="https://script.google.com/macros/s/AKfycbxrcTwFyt6WoeOfzI3Kfj8ywA7azE8lFWuKdbOh4Ysal9NiEOHk/exec"></script>
 
   <script>
     var requestCount = 0;
