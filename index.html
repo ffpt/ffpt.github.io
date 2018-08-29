@@ -245,7 +245,7 @@
     var loadingHTML = document.getElementById('searchResult1').innerHTML;
     document.getElementById('searchResult1').innerHTML = "";
 
-    var queryID = queryID();
+    var queryID = "a";
     var tags = [];
     var store;
 
@@ -295,7 +295,7 @@
     $.ajax({
          type: "get",
          async: true,
-         data: {t: "trainer", condition: paraCondition, storename: store, queryID: queryID()},
+         data: {t: "trainer", condition: paraCondition, storename: store, queryID: queryID},
          url: "https://script.google.com/macros/s/AKfycbxQEHHUmM4sAigFbK-GRSQMaS0KCGqPsN3hRSlne9kr2LZpQyw/exec",
          dataType: "jsonp",
          success: function(res){
@@ -323,7 +323,7 @@
     $.ajax({
          type: "get",
          async: true,
-         data: {t: "storename", area: areaNo, queryID: queryID()},
+         data: {t: "storename", area: areaNo, queryID: queryID},
          url: "https://script.google.com/macros/s/AKfycbxQEHHUmM4sAigFbK-GRSQMaS0KCGqPsN3hRSlne9kr2LZpQyw/exec",
          dataType: "jsonp",
          success: function(res){
@@ -341,7 +341,7 @@
   
   </script>
 
-<script src="https://script.google.com/macros/s/AKfycbxQEHHUmM4sAigFbK-GRSQMaS0KCGqPsN3hRSlne9kr2LZpQyw/exec?t=areaname&queryID="+queryID></script>
+<script src="https://script.google.com/macros/s/AKfycbxQEHHUmM4sAigFbK-GRSQMaS0KCGqPsN3hRSlne9kr2LZpQyw/exec?t=areaname&queryID=a"></script>
 
   </body>
 </html>
