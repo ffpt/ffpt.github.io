@@ -245,6 +245,7 @@
     var loadingHTML = document.getElementById('searchResult1').innerHTML;
     document.getElementById('searchResult1').innerHTML = "";
 
+    var queryID = "";
     var tags = [];
     var store;
 
@@ -278,7 +279,8 @@
   //   var obj = JSON.parse(json)
   //   alert(obj)
   // }
-  function submitForm() {    
+  function submitForm() {
+    queryID = queryID();
     requestCount += 1;
     $('#searchResult').find('.content').html(loadingHTML);    
     // alert(loadingHTML);
@@ -293,7 +295,7 @@
     $.ajax({
          type: "get",
          async: true,
-         data: {t: "trainer", condition: paraCondition, storename: store},
+         data: {t: "trainer", condition: paraCondition, storename: store, queryID: queryID()},
          url: "https://script.google.com/macros/s/AKfycbxQEHHUmM4sAigFbK-GRSQMaS0KCGqPsN3hRSlne9kr2LZpQyw/exec",
          dataType: "jsonp",
          success: function(res){
@@ -305,7 +307,8 @@
     //  $('#fieldForm').find('.field2').html("dddd");
   }
 
-  function queryStoreName(areaNo) {    
+  function queryStoreName(areaNo) {   
+    queryID = queryID(); 
     requestCount += 1;
     $('#fieldForm').find('.field3').html(loadingHTML);    
     // alert(loadingHTML);
@@ -320,7 +323,7 @@
     $.ajax({
          type: "get",
          async: true,
-         data: {t: "storename", area: areaNo},
+         data: {t: "storename", area: areaNo, queryID: queryID()},
          url: "https://script.google.com/macros/s/AKfycbxQEHHUmM4sAigFbK-GRSQMaS0KCGqPsN3hRSlne9kr2LZpQyw/exec",
          dataType: "jsonp",
          success: function(res){
@@ -332,6 +335,9 @@
     //  $('#fieldForm').find('.field2').html("dddd");
   }
   
+  function queryID() {
+    return Math.floor(new Date().getTime() / 1000) + Math.floor((Math.random() * 10) + 1);
+  } 
   
   </script>
 
