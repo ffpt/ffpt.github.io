@@ -245,7 +245,7 @@
     var loadingHTML = document.getElementById('searchResult1').innerHTML;
     document.getElementById('searchResult1').innerHTML = "";
 
-    var queryID = "";
+    var queryID = queryID();
     var tags = [];
     var store;
 
@@ -341,7 +341,7 @@
   
   </script>
 
-<script src="https://script.google.com/macros/s/AKfycbxQEHHUmM4sAigFbK-GRSQMaS0KCGqPsN3hRSlne9kr2LZpQyw/exec?t=areaname"></script>
+<script src="https://script.google.com/macros/s/AKfycbxQEHHUmM4sAigFbK-GRSQMaS0KCGqPsN3hRSlne9kr2LZpQyw/exec?t=areaname&queryID="+queryID></script>
 
   </body>
 </html>
