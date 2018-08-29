@@ -75,7 +75,7 @@
               </select>
               <h5>title</h5>
               <div class="field2">        
-              <select id="field2" multiple>                 
+              <!-- <select id="field2" multiple>                 
                 <option value="A">A</option>
                 <option value="B">B</option>  
                 <option value="C">C</option>
@@ -84,7 +84,7 @@
                 <option value="F">F</option>  
                 <option value="G">G</option>                
                 <option value="H">H</option>                                
-              </select>
+              </select> -->
               </div>
               <h5>title</h5>
               <select id="field3" multiple>                
@@ -224,7 +224,7 @@
     var config2 = {
       max: 1,
       onSelect: function(value, text) {  
-        
+        queryStoreName(value);
       },
       onDeselect: function(value, text) {
         
@@ -281,7 +281,7 @@
   //   alert(obj)
   // }
   function submitForm() {    
-    // requestCount += 1;
+    requestCount += 1;
     $('#searchResult').find('.content').html(loadingHTML);    
     // alert(loadingHTML);
     var dt = new Date();
@@ -296,6 +296,33 @@
          type: "get",
          async: true,
          data: {t: "trainer", condition: paraCondition, storename: "KH02"},
+         url: "https://script.google.com/macros/s/AKfycbxQEHHUmM4sAigFbK-GRSQMaS0KCGqPsN3hRSlne9kr2LZpQyw/exec",
+         dataType: "jsonp",
+         success: function(res){
+         },
+         error: function(error){
+          //  alert(error)
+         }
+     });
+    //  $('#fieldForm').find('.field2').html("dddd");
+  }
+
+  function queryStoreName(areaNo) {    
+    requestCount += 1;
+    $('#fieldForm').find('.field3').html(loadingHTML);    
+    // alert(loadingHTML);
+    var dt = new Date();
+    var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
+
+    var paraCondition = "0"
+    if (tags.length == 1) {
+      paraCondition = tags[0]
+    }
+    //alert(paraCondition);
+    $.ajax({
+         type: "get",
+         async: true,
+         data: {t: "storename", area: areaNo},
          url: "https://script.google.com/macros/s/AKfycbxQEHHUmM4sAigFbK-GRSQMaS0KCGqPsN3hRSlne9kr2LZpQyw/exec",
          dataType: "jsonp",
          success: function(res){
