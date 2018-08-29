@@ -280,7 +280,7 @@
   //   alert(obj)
   // }
   function submitForm() {
-    queryID = queryID();
+    queryID = genQueryID();
     requestCount += 1;
     $('#searchResult').find('.content').html(loadingHTML);    
     // alert(loadingHTML);
@@ -308,7 +308,7 @@
   }
 
   function queryStoreName(areaNo) {   
-    queryID = queryID(); 
+    queryID = genQueryID(); 
     requestCount += 1;
     $('#fieldForm').find('.field3').html(loadingHTML);    
     // alert(loadingHTML);
@@ -335,7 +335,7 @@
     //  $('#fieldForm').find('.field2').html("dddd");
   }
   
-  function queryID() {
+  function genQueryID() {
     return Math.floor(new Date().getTime() / 1000) + Math.floor((Math.random() * 10) + 1);
   } 
   
