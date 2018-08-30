@@ -211,8 +211,9 @@
 
     var config2 = {
       max: 1,
-      onSelect: function(value, text) {  
-        queryStoreName(value);
+      onSelect: function(value, text) {
+        var qID = genQueryID();
+        queryStoreName(value,qID);
         switch(value) {
         case 'F001':
           store = 'KH01';
@@ -232,7 +233,7 @@
         default:
           break;
         }                
-        submitForm();
+        submitForm(qID);
       },
       onDeselect: function(value, text) {
         
@@ -301,8 +302,12 @@
   //   var obj = JSON.parse(json)
   //   alert(obj)
   // }
-  function submitForm() {
-    queryID = genQueryID();
+  function submitForm(qID) {
+    if (qID) {
+      queryID = qID;
+    } else {
+      queryID = genQueryID();
+    }
     requestCount += 1;
     $('#searchResult').find('.content').html(loadingHTML);    
     // alert(loadingHTML);
@@ -329,8 +334,12 @@
     //  $('#fieldForm').find('.field2').html("dddd");
   }
 
-  function queryStoreName(areaNo) {   
-    queryID = genQueryID(); 
+  function queryStoreName(areaNo,qID) { 
+    if (qID) {
+      queryID = qID;
+    } else {
+      queryID = genQueryID();
+    }
     requestCount += 1;
     $('#fieldForm').find('.field3').html(loadingHTML);    
     // alert(loadingHTML);
