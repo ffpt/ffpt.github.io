@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html" charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-  <title>Starter Template - Materialize</title>
+  <title>FF Personal Trainer</title>
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -372,7 +372,27 @@
   
   </script>
 
-<script src="https://script.google.com/macros/s/AKfycbxQEHHUmM4sAigFbK-GRSQMaS0KCGqPsN3hRSlne9kr2LZpQyw/exec?t=areaname&queryID=a"></script>
+    <script src="https://script.google.com/macros/s/AKfycbxQEHHUmM4sAigFbK-GRSQMaS0KCGqPsN3hRSlne9kr2LZpQyw/exec?t=areaname&queryID=a"></script>
 
+    <div id="my_popup">
+
+      ...popup content...
+  
+      <!-- Add an optional button to close the popup -->
+      <button class="my_popup_close">Close</button>
+  
+    </div>
+    <script src="https://cdn.rawgit.com/vast-engineering/jquery-popup-overlay/1.7.13/jquery.popupoverlay.js"></script>
+    <script>
+      $(document).ready(function() {
+
+        // Initialize the plugin
+        $('#my_popup').popup();
+
+      });
+      function showPopup() {
+        $('#my_popup').popup('show');
+      }
+    </script>
   </body>
 </html>
