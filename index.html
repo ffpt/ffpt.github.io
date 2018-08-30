@@ -392,9 +392,22 @@
         $('#my_popup').popup();
 
       });
-      function showPopup() {
+      function showPopup(trainerNo) {
         $('#my_popup').popup('show');
         $('#my_popup').find('.content').html(loadingHTML);
+        alert(trainerNo);
+        $.ajax({
+         type: "get",
+         async: true,
+         data: {t: "storename", trainerNo: trainerNo, queryID: queryID},
+         url: "https://script.google.com/macros/s/AKfycbxQEHHUmM4sAigFbK-GRSQMaS0KCGqPsN3hRSlne9kr2LZpQyw/exec",
+         dataType: "jsonp",
+         success: function(res){
+         },
+         error: function(error){
+          //  alert(error)
+         }
+     });
       }
     </script>
   </body>
