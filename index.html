@@ -213,6 +213,26 @@
       max: 1,
       onSelect: function(value, text) {  
         queryStoreName(value);
+        switch(value) {
+        case 'F001':
+          store = 'KH01';
+          break;
+        case 'F002':
+          store = 'CY01';
+          break;
+        case 'F003':
+          store = 'TC01';
+          break;
+        case 'F004':
+          store = 'HC01';
+          break;
+        case 'F005':
+          store = 'NT01';
+          break;
+        default:
+          break;
+        }                
+        submitForm();
       },
       onDeselect: function(value, text) {
         
