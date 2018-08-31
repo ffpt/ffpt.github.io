@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="tag/tagselector.css">
   <style>
   #popupBackground { 
-    opacity: 0.7;
+    opacity: 0.85;
     background-color:#FFFFFF;
     margin-top: 50px;
     margin-bottom: 50px;
@@ -21,6 +21,7 @@
     border-radius: 30px 30px 30px 30px;
   }
   .topcorner {
+    color:#000000;
     position: absolute;
     top: 0;
     right: 0;
@@ -399,7 +400,7 @@
     <div id="my_popup">
       <div class="content">
       </div>
-      <a href="#" onclick="hidePopup();"><i class="material-icons">close</i></a>   
+      <a href='#' onclick='hidePopup();'><i class='material-icons topcorner'>close</i></a>
       <!-- <button class="my_popup_close topcorner">Close</button>   -->
     </div>
     <script src="https://cdn.rawgit.com/vast-engineering/jquery-popup-overlay/1.7.13/jquery.popupoverlay.js"></script>
