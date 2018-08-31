@@ -392,14 +392,14 @@
         $('#my_popup').popup();
 
       });
-      function showPopup(trainerNo) {
+      function showPopup(trainerNo,store) {
         $('#my_popup').popup('show');
         $('#my_popup').find('.content').html(loadingHTML);
         alert(trainerNo);
         $.ajax({
          type: "get",
          async: true,
-         data: {t: "trainerDetail", trainerNo: trainerNo, queryID: queryID},
+         data: {t: "trainerDetail", trainerNo: trainerNo, storename: store, queryID: queryID},
          url: "https://script.google.com/macros/s/AKfycbxQEHHUmM4sAigFbK-GRSQMaS0KCGqPsN3hRSlne9kr2LZpQyw/exec",
          dataType: "jsonp",
          success: function(res){
